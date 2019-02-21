@@ -1,0 +1,57 @@
+{"item": {
+  "class": "ScrapyuniversalItem",
+  "loader": "ChinaLoader",
+  "attrs": {
+    "title": [
+      {
+        "method": "xpath",
+        "args": [
+          "//h1[@id='chan_newsTitle']/text()"
+        ]
+      }
+    ],
+    "url": [
+      {
+        "method": "attr",
+        "args": [
+          "url"
+        ]
+      }
+    ],
+    "text": [
+      {
+        "method": "xpath",
+        "args": [
+          "//div[@id='chan_newsDetail']//text()"
+        ]
+      }
+    ],
+    "datetime": [
+      {
+        "method": "xpath",
+        "args": [
+          "//div[@id='chan_newsInfo']/text()"
+        ],
+        "re": "(\\d+-\\d+-\\d+\\s\\d+:\\d+:\\d+)"
+      }
+    ],
+    "source": [
+      {
+        "method": "xpath",
+        "args": [
+          "//div[@id='chan_newsInfo']/text()"
+        ],
+        "re": "来源：(.*)"
+      }
+    ],
+    "website": [
+      {
+        "method": "value",
+        "args": [
+          "中华网"
+        ]
+      }
+    ]
+  }
+}
+}
